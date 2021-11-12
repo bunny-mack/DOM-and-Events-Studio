@@ -1,8 +1,14 @@
 // Write your JavaScript code here.
 // Remember to pay attention to page loading!
-window.addEventListener('load', (event) => {
+window.addEventListener('load', () => {
     
-    
+    let height = 0;
+    const rocket = document.getElementById("rocket");
+    const upButton = document.getElementById("upControl");
+    const downButton = document.getElementById("downControl");
+    const leftButton = document.getElementById("leftControl");
+    const rightButton = document.getElementById("rightControl");
+
     takeoff.addEventListener('click', event => {
       let response = window.confirm("Confirm that the shuttle is ready for takeoff.");
       if (response === true) {
@@ -28,20 +34,24 @@ window.addEventListener('load', (event) => {
       }
     });
 
-    up.addEventListener('click', event => {
-      rocket.style.position.bottom = "10px"
+    upButton.addEventListener('click', () => {
+        height += 1000
+        rocket.style.top = `${height / 10}px`;
     });
 
-    down.addEventListener('click', event => {
-      rocket.style.position.bottom = "10px"
+    downButton.addEventListener('click', () => {
+        height -= 1000
+        rocket.style.bottom = `${height / 10}px`;
     });
 
-    left.addEventListener('click', event => {
-      rocket.style.position.bottom = "10px"
+    leftButton.addEventListener('click', () => {
+        height -= 1000
+        rocket.style.left = `${height / 10}px`;
     });
 
-    right.addEventListener('click', event => {
-      rocket.style.position.bottom = "10px"
+    rightButton.addEventListener('click', () => {
+        height += 1000
+        rocket.style.right = `${height / 10}px`;
     });
 
   });
